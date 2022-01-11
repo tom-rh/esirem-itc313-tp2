@@ -6,15 +6,17 @@ class Chambre
 private :
     int _num;
     int _prix;
-    std::string _type;
+    char *_type;
+    size_t  sizeOfText;
    
 
 public :
-    Chambre(int num,std::string type,int prix);
+    Chambre(int num,char*type,int prix);
+    ~Chambre();
     int getNum() const;
     int getPrix() const;
     void setPrix(double new_prix);
-    std::string getType() const;
+    char getType() const;
     
 
 };
