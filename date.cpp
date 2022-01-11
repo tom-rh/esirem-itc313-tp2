@@ -52,7 +52,7 @@ void Date::updateYear(int year) {
             _month=1;
             _year= _year+1;
         }
-        else if (_day==getDaysInMonth(_month)) {
+        else if (_day==getDaysInMonth(_month,_year)) {
             _day=1;
             _month++;
         }
@@ -70,27 +70,13 @@ void Date::updateYear(int year) {
         }
         else if (_day==1) {
             _month--;
-            _day=getDaysInMonth(_month);
+            _day=getDaysInMonth(_month,_year);
         }
         else {
             _day--;
         }
     }
 
-
- int getDaysInMonth(int month)  {
-        assert(((month >=1) && (month<=12)) && "Month is not valid");
-        if(month == 2){
-            if(_year %4 == 0 && _year %400 != 0) {
-                return 29;
-            }
-            return 28;
-        }
-    
-        if ((month == 1 || month == 3 || month == 5 || month == 7
-        || month == 8 || month == 10 || month == 12)) return 31;
-        return 30;
-    }
 
     /**
      *
@@ -108,18 +94,32 @@ void Date::updateYear(int year) {
     }
 
 
+    int getDaysInMonth(int month, int year)  {
+        assert(((month >=1) && (month<=12)) && "Month is not valid");
+        if(month == 2){
+            if(year %4 == 0 && year %400 != 0) {
+                return 29;
+            }
+            return 28;
+        }
+    
+        if ((month == 1 || month == 3 || month == 5 || month == 7
+        || month == 8 || month == 10 || month == 12)) return 31;
+        return 30;
+    }
 
     int dayOfYear(Date d) {
         auto day=0;
+        int y=d.year();
         for (auto i=1;i<d.month();i++) {
-            day+=getDaysInMonth(i);
+            day+=getDaysInMonth(i,y);
         }
         day+= d.day();
         return day;
     }
 
     std::string toString(Date d) {
-        return std::to_string(d.day()) + "/" + std::to_string(d.month()) ;
+        return std::to_string(d.day()) + "/" + std::to_string(d.month()) + "/" + std::to_string(d.year()) ;
     }
 
     Date operator + (const Date& date, const int days) {
@@ -129,6 +129,7 @@ void Date::updateYear(int year) {
         Date tmp = date; // the current date
         int new_day = tmp.day() + days; // the new day is ok if new_day < end of month
         int new_month = tmp.month();
+        int new_year = tmp.year(); // 
         int days_in_month = getDaysInMonth(tmp.month());
         while (new_day > days_in_month) { // end of the month
             new_day -= days_in_month; // the day in the next month
@@ -137,9 +138,9 @@ void Date::updateYear(int year) {
                 new_month = 1;
             }
             tmp.updateMonth(new_month);
-            days_in_month = getDaysInMonth(tmp.month());
+            days_in_month = getDaysInMonth(tmp.month(),tmp.year());
         }
-        return Date(new_month, new_day);
+        return Date(new_day, new_month, new_year);
     }
 
     Date operator + (const int days, const Date& date) {
@@ -173,23 +174,25 @@ void Date::updateYear(int year) {
             return date + (-days);
         }
         int new_month=date.month();
+        int new_year=date.year();
         int new_day = date.day()-days; // the new day is ok if > 0
         while (new_day <=0) {
             if (new_month==1) { // beginning of the year
                 new_month=12; // in december
                 new_day=31+new_day;
+                new_year-=new_year;
             }
             else { // other months than january
-                int days_in_previous_month = getDaysInMonth(Date(new_month-1,1).month());
+                int days_in_previous_month = getDaysInMonth(Date(1,new_month-1,new_year).month(), new_year);
                 new_day = days_in_previous_month+new_day;
                 new_month--;
             }
         }
-        return Date(new_month, new_day);
+        return Date(new_day,new_month ,new_year);
     }
 
     bool operator == (const Date& d1,const Date& d2) { // check for equality
-        if( (d1.day()==d2.day()) && (d1.month()==d2.month())) {
+        if( (d1.day()==d2.day()) && (d1.month()==d2.month()) && (d1.year()==d2.year())) {
             return true;
         }
     return false;
@@ -201,12 +204,23 @@ void Date::updateYear(int year) {
 
     bool operator < (const Date& d1, const Date& d2) {
 
-        if (d1.month()<d2.month()) {
+        if (d1.year()<d2.year()){
+            return true; 
+        }
+        
+        else if(d1.year()>d2.year()){
+            return false;
+        }
+        
+        else if (d1.month()<d2.month()) {
             return true;
         }
+
         else if (d1.month()>d2.month()) {
             return false;
-        } else { // same month
+        } 
+
+        else { // same month
             if ( d1.day()<d2.day()) {
                 return true;
             }

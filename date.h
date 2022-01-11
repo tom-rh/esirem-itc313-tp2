@@ -6,6 +6,7 @@
 namespace date {
    class Date {
    public:
+      
       Date(int day=1, int month=1, int year=2022);
       int month() const;
       int day() const;
@@ -15,15 +16,16 @@ namespace date {
       void updateYear(int year);
       void next();
       void back();
-      int getDaysInMonth(int month);
+   
 
    private:
       int _month;
       int _day;
       int _year;
 
-   };
 
+   };
+   int getDaysInMonth(int month);
    bool isDate(int day, int month, int year);
    int dayOfYear(Date d);
    std::string toString(Date d);
