@@ -52,7 +52,7 @@ void Date::updateYear(int year) {
             _month=1;
             _year= _year+1;
         }
-        else if (_day==getDaysInMonth(_month,_year)) {
+        else if (_day==getDaysInMonth(_month)) {                            // rajouter _year
             _day=1;
             _month++;
         }
@@ -70,7 +70,7 @@ void Date::updateYear(int year) {
         }
         else if (_day==1) {
             _month--;
-            _day=getDaysInMonth(_month,_year);
+            _day=getDaysInMonth(_month);                            // rajouter _year
         }
         else {
             _day--;
@@ -130,7 +130,7 @@ void Date::updateYear(int year) {
         int new_day = tmp.day() + days; // the new day is ok if new_day < end of month
         int new_month = tmp.month();
         int new_year = tmp.year(); // 
-        int days_in_month = getDaysInMonth(tmp.month());
+        int days_in_month = getDaysInMonth(tmp.month(),tmp.year());
         while (new_day > days_in_month) { // end of the month
             new_day -= days_in_month; // the day in the next month
             new_month++;
@@ -211,7 +211,7 @@ void Date::updateYear(int year) {
         else if(d1.year()>d2.year()){
             return false;
         }
-        
+
         else if (d1.month()<d2.month()) {
             return true;
         }
