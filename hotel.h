@@ -20,6 +20,7 @@ public :
     std::string getID() const;
     std::string getNom() const;
     std::string getVille() const;
+    std::string AfichChambre() const;
     std::vector<Chambre> addChambre();
     std::vector<Chambre> supChambre();
  

@@ -4,8 +4,10 @@
 
 
 namespace date {
+
+
     Date::Date(int day, int month, int year) : _month(month), _day(day), _year(year) {
-        bool status = isDate(day, month, year);
+        bool status = isDate(day, month);
         assert(status && "Date is not valid");
     }
 
@@ -26,21 +28,21 @@ namespace date {
 
 
     void Date::updateMonth(int month) {
-        bool status = isDate(_day, month, _year);
+        bool status = isDate(_day, month);
         assert(status==true && "New month is not valid");
         _month = month;
     }
 
 
     void Date::updateDay(int day) {
-        bool status = isDate(day, _month, _year);
+        bool status = isDate(day, _month);
         assert(status==true && "New day is not valid");
         _day = day;
     }
 
 
 void Date::updateYear(int year) {
-        bool status = isDate(_day, _month, year);
+        bool status = isDate(_day, _month);
         assert(status==true && "New day is not valid");
         _year = year;
     }
@@ -52,7 +54,7 @@ void Date::updateYear(int year) {
             _month=1;
             _year= _year+1;
         }
-        else if (_day==getDaysInMonth(_month)) {                            // rajouter _year
+        else if (_day==getDaysInMonth(_month, _year)) {                            // rajouter _year
             _day=1;
             _month++;
         }
@@ -70,7 +72,7 @@ void Date::updateYear(int year) {
         }
         else if (_day==1) {
             _month--;
-            _day=getDaysInMonth(_month);                            // rajouter _year
+            _day=getDaysInMonth(_month, _year);                            // rajouter _year
         }
         else {
             _day--;
@@ -84,7 +86,7 @@ void Date::updateYear(int year) {
      *
     */
 
-    bool isDate(int month, int day) {
+     bool isDate(int day, int month) {
         if ((day < 1) || (day>31)) return false;
         if ((month <1) || (month>12)) return false;
         if ((month == 2) && (day > 28)) return false;
@@ -107,6 +109,7 @@ void Date::updateYear(int year) {
         || month == 8 || month == 10 || month == 12)) return 31;
         return 30;
     }
+
 
     int dayOfYear(Date d) {
         auto day=0;

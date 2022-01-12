@@ -25,8 +25,8 @@ namespace date {
 
 
    };
-   int getDaysInMonth(int month);
-   bool isDate(int day, int month, int year);
+   int getDaysInMonth(int month, int year);
+   bool isDate(int day, int month);
    int dayOfYear(Date d);
    std::string toString(Date d);
 
