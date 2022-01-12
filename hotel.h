@@ -7,7 +7,7 @@ class Hotel
 {
 private :
 
-    std::vector<Chambre> chambres; // chambres.erase(i)
+    std::vector<Chambre> _chambres; 
     std::string _ID;
     std::string _nom;
     std::string _ville;
@@ -15,14 +15,14 @@ private :
 
 public :
 
-    Hotel(std::string ID,std::string nom,std::string ville, std::vector<Chambre> chambres);
+    Hotel(std::string ID,std::string nom,std::string ville);
 
     std::string getID() const;
     std::string getNom() const;
     std::string getVille() const;
-    std::string AfichChambre() const;
-    std::vector<Chambre> addChambre();
-    std::vector<Chambre> supChambre();
+    void AffichChambre();
+    bool addChambre(int ID,std::string type, int prix);
+    bool supChambre(int ID);
  
 
 };
