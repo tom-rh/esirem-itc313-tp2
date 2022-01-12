@@ -1,10 +1,3 @@
-//Une date de début,
-//Un nombre de nuits
-//Un identifiant d'hôtel,
-//Un identifiant de chambre,
-//Un identifiant de client,
-//Un montant total.
-
 #include <iostream>
 #include <string>
 #include "hotel.h"
@@ -16,16 +9,28 @@
 
 class Reservation
 {
+    
 private :
 
-    date::Date debut();
-    int nb_nuit;
-    double total;
-   
+    date::Date _debut;
+    int _nb_nuit;
+    double _total;
+    int _IDclient;
+    int _IDhotel;
+    int _IDchambre;
+    int _id;
 
 public :
 
- 
+   Reservation (int id,int IDclient, int IDhotel, int IDchambre,date::Date debut,int nuit);
+    void getNuit();
+    void getClient();
+    void getDate();
+    void getTotal();
+    void getHotel();
+    void getChambre();
+    void ModifSejour();
+    void getID();
 
 };
 

@@ -32,7 +32,7 @@
     }
 
 
-    bool Hotel::addChambre(int ID,std::string type, int prix){
+    bool Hotel::addChambre(int ID,std::string type, float prix){
        
         _chambres.push_back(Chambre (ID,type,prix));
 

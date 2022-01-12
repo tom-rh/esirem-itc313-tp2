@@ -1,7 +1,7 @@
 #include "chambre.h"
 #include <iostream>
 
-Chambre::Chambre(int ID,std::string type, int prix): _id(ID), _type(type), _prix(prix) {
+Chambre::Chambre(int ID,std::string type, float prix): _id(ID), _type(type), _prix(prix) {
 
 }
 
@@ -16,18 +16,18 @@ std::string Chambre::getType() const {
     return _type;
 }
 
-int Chambre::getPrix() const {
+float Chambre::getPrix() const {
 
     return _prix;
 }
 
-void Chambre::setPrix(double new_prix)
+void Chambre::setPrix(float new_prix)
 {
     _prix=new_prix;
 }
 
-std::ostream& operator<<(std::ostream& os, const Chambre& client){
-    os << client.getID() << "-" << client.getType() << "-" << client.getPrix() << std::endl;
+std::ostream& operator<<(std::ostream& os, const Chambre& chambre){
+    os << chambre.getID() << "-" << chambre.getType() << "-" << chambre.getPrix() << std::endl;
     return os;
     
 }

@@ -21,10 +21,10 @@ public :
     std::string getNom() const;
     std::string getVille() const;
     void AffichChambre();
-    bool addChambre(int ID,std::string type, int prix);
+    bool addChambre(int ID,std::string type, float prix);
     bool supChambre(int ID);
  
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Chambre& client);
+std::ostream& operator<<(std::ostream& os, const Hotel& hotel);
