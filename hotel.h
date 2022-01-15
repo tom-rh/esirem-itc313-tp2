@@ -20,6 +20,7 @@ public :
     std::string getID() const;
     std::string getNom() const;
     std::string getVille() const;
+    Chambre getChambre(int id);
     void AffichChambre();
     bool addChambre(int ID,std::string type, float prix);
     bool supChambre(int ID);

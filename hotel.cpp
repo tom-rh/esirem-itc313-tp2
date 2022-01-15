@@ -53,6 +53,19 @@
 
     }
 
+    Chambre Hotel::getChambre(int id)
+{
+     for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
+        {
+            if((*i).getID()==id)
+            {
+                return (*i);
+            }
+           
+           
+        }
+}
+
 
     std::ostream& operator<<(std::ostream& os, const Hotel& hotel){
     os << hotel.getID() << "-" << hotel.getNom() << "-" << hotel.getVille() << std::endl;

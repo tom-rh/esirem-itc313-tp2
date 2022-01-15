@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <string>
 #include "hotel.h"
@@ -13,23 +15,25 @@ private :
     date::Date _debut;
     int _nb_nuit;
     float _total;
-    int _IDclient;
-    int _IDhotel;
-    int _IDchambre;
+    Client _client;
+    Hotel _hotel;
+    Chambre _chambre;
     int _id;
 
 public :
 
-    Reservation (int id,int IDclient, int IDhotel, int IDchambre,date::Date debut,int nuit);
-    void getNuit();
-    void getClient();
-    void getDate();
-    void getTotal();
-    void getHotel();
-    void getChambre();
+    Reservation (int id,Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
+    int getNuit() const;
+    Client getClient() const;
+    date::Date getDate() const;
+    float getTotal() const;
+    Hotel getHotel() const;
+    Chambre getChambre() const;
     void ModifSejour();
-    void getID();
+    int getID() const;
+
+ 
 
 };
+std::ostream& operator<<(std::ostream& os, const Reservation& reserv);
 
-//std::ostream& operator<<(std::ostream& os, const Reservation& reserv);
