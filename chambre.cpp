@@ -1,7 +1,10 @@
 #include "chambre.h"
 #include <iostream>
 
-Chambre::Chambre(int ID,std::string type, float prix): _id(ID), _type(type), _prix(prix) {
+int Chambre::_debutId=1;
+
+
+Chambre::Chambre(std::string type, float prix): _id(_debutId++), _type(type), _prix(prix) {
 
 }
 

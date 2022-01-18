@@ -2,12 +2,15 @@
    #include <string>
    #include <iostream>
    
-    Hotel::Hotel(std::string ID,std::string nom,std::string ville): _ID(ID), _nom(nom), _ville(ville){
+   int Hotel::_debutId=1;
+
+
+    Hotel::Hotel(std::string nom,std::string ville): _ID(_debutId++), _nom(nom), _ville(ville){
 
 
     }
 
-    std::string Hotel::getID() const{
+    int Hotel::getID() const{
         return _ID;
     }
 
@@ -32,9 +35,9 @@
     }
 
 
-    bool Hotel::addChambre(int ID,std::string type, float prix){
+    bool Hotel::addChambre(std::string type, float prix){
        
-        _chambres.push_back(Chambre (ID,type,prix));
+        _chambres.push_back(Chambre (type,prix));
 
         return true;
     }

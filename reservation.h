@@ -11,7 +11,7 @@ class Reservation
 {
 
 private :
-
+    static int _debutId;
     date::Date _debut;
     int _nb_nuit;
     float _total;
@@ -22,7 +22,7 @@ private :
 
 public :
 
-    Reservation (int id,Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
+    Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
     int getNuit() const;
     Client getClient() const;
     date::Date getDate() const;

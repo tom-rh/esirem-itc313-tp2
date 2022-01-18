@@ -6,23 +6,23 @@
 class Hotel
 {
 private :
-
+    static int _debutId;
     std::vector<Chambre> _chambres; 
-    std::string _ID;
+    int _ID;
     std::string _nom;
     std::string _ville;
    
 
 public :
 
-    Hotel(std::string ID,std::string nom,std::string ville);
+    Hotel(std::string nom,std::string ville);
 
-    std::string getID() const;
+    int getID() const;
     std::string getNom() const;
     std::string getVille() const;
     Chambre getChambre(int id);
     void AffichChambre();
-    bool addChambre(int ID,std::string type, float prix);
+    bool addChambre(std::string type, float prix);
     bool supChambre(int ID);
  
 

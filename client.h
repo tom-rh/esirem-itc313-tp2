@@ -5,12 +5,13 @@
 class Client
 {
 private :
+    static int _debutId;
     int _id;
     std::string _prenom;
     std::string _nom;
 
 public :
-    Client(int id,std::string prenom,std::string nom);
+    Client(std::string prenom,std::string nom);
     int getID() const;
     std::string getPrenom() const;
     std::string getNom() const;
