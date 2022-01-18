@@ -1,7 +1,9 @@
 #include "client.h"
 #include <iostream>
 
-Client::Client(int id,std::string prenom, std::string nom): _id(id), _prenom(prenom), _nom(nom) {
+int Client::_debutId=1;
+
+Client::Client(std::string prenom, std::string nom): _id(_debutId++), _prenom(prenom), _nom(nom) {
 
 }
 
@@ -45,7 +47,7 @@ void Client::recherche(std::vector<Client> _clients, std::string recherche)
      int ID;
     std::cout<< "entre une ID"<< std::endl;
 
-     _clients.push_back(Client (ID,prenom,recherche));
+     _clients.push_back(Client (prenom,recherche));
      std::cout<< "votre ouveau client est bien ajoute"<< std::endl;
  }
 

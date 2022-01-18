@@ -4,6 +4,7 @@
 class Chambre
 {
 private :
+    static int _debutId;
     int _id;
     float _prix;
     std::string _type;
@@ -11,7 +12,7 @@ private :
    
 
 public :
-    Chambre(int ID,std::string type,float prix);
+    Chambre(std::string type,float prix);
  
     int getID() const;
     float getPrix() const;
