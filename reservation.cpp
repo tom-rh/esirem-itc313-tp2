@@ -43,6 +43,8 @@ int Reservation::getID() const
     return _id;
 }
 
+
+
 void Reservation::ModifSejour()
 {
 
@@ -101,6 +103,20 @@ do
 }
 
 
+
+void Reservation::modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit)
+{
+
+_client=client;
+_hotel=hotel;
+_chambre=chambre;
+_debut=debut;
+_nb_nuit=nuit;
+
+}
+
+
+
 void afficheReserv(std::vector<Reservation> reservs)
 {
     for(auto i= reservs.begin() ; i != reservs.end() ; i++)
@@ -114,6 +130,8 @@ void afficheReserv(std::vector<Reservation> reservs)
 void rechercheReserv(std::vector<Reservation> reservs ,int id)
 
 {
+
+
 
 int testID;
 for(auto i= reservs.begin() ; i != reservs.end() ; i++)
@@ -129,6 +147,23 @@ for(auto i= reservs.begin() ; i != reservs.end() ; i++)
 
 }
 
+
+
+void reservClient(std::vector<Reservation> reservs, int id)
+{
+    
+for(auto i= reservs.begin() ; i != reservs.end() ; i++)
+        {
+           Client client=(*i).getClient();
+
+           if(client.getID()==id)
+           {
+               std::cout << (*i);
+           }
+           
+        }
+
+}
 
 
 std::ostream& operator<<(std::ostream& os, const Reservation& reserv){

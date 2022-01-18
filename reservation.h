@@ -32,6 +32,7 @@ public :
     void ModifSejour();
     int getID() const;
     void afficheReserv();
+    void modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
 
  
 
@@ -39,4 +40,5 @@ public :
 std::ostream& operator<<(std::ostream& os, const Reservation& reserv);
 void afficheReserv(std::vector<Reservation> reservs);
 void rechercheReserv(std::vector<Reservation> reservs, int id);
+void reservClient(std::vector<Reservation> reservs,int id);
 
