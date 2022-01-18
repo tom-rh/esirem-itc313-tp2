@@ -37,15 +37,18 @@ Chambre Reservation::getChambre() const
     return _chambre;
 }
 
-void Reservation::ModifSejour()
-{
-
-}
-
 
 int Reservation::getID() const
 {
     return _id;
+}
+
+void Reservation::ModifSejour(date::Date newdate,int newnuit)
+{
+
+    _debut=newdate;
+    _nb_nuit=newnuit;
+
 }
 
 

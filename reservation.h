@@ -29,7 +29,7 @@ public :
     float getTotal() const;
     Hotel getHotel() const;
     Chambre getChambre() const;
-    void ModifSejour();
+    void ModifSejour(date::Date newdate,int newnuit);
     int getID() const;
 
  
