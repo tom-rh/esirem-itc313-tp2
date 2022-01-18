@@ -29,6 +29,7 @@ h1.addChambre(10,"suite",500);
  _clients.push_back(Client (4,"rom","canard"));
 
 
+recherche(_clients,"bozo");
 
 Client cl1(14,"kinkin","fifi");
 

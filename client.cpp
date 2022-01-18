@@ -22,11 +22,11 @@ std::string Client::getNom() const {
 
 
 
-void Client::recherche(std::vector<Client> _clients, std::string recherche)
+void recherche(std::vector<Client> clients, std::string recherche)
 {
-    bool creation;
+    bool creation = true;
 
- for(auto i= _clients.begin() ; i != _clients.end() ; i++)
+ for(auto i= clients.begin() ; i != clients.end() ; i++)
         {
             std::string comp=(*i).getNom();
             if(comp==recherche)
@@ -37,18 +37,29 @@ void Client::recherche(std::vector<Client> _clients, std::string recherche)
            
            
         }
- if(creation)
+ if(creation==true)
  {
      std::string prenom;
      std::cout<< "entre un prenom"<< std::endl;
      std::cin >> prenom;
      int ID;
     std::cout<< "entre une ID"<< std::endl;
+    std::cin >> ID;
 
-     _clients.push_back(Client (ID,prenom,recherche));
-     std::cout<< "votre ouveau client est bien ajoute"<< std::endl;
+     clients.push_back(Client (ID,prenom,recherche));
+     std::cout<< "votre nouveau client est bien ajoute"<< std::endl;
  }
 
+}
+
+
+void Client::afichheCLient(std::vector<Client> clients)
+{
+    for(auto i= clients.begin() ; i != clients.end() ; i++)
+        {
+           std::cout << (*i);
+           
+        }
 }
 
 

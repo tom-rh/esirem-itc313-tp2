@@ -14,8 +14,10 @@ public :
     int getID() const;
     std::string getPrenom() const;
     std::string getNom() const;
-    void recherche(std::vector<Client> _clients, std::string recherche);
+    void afichheCLient(std::vector<Client> clients);
+ 
 
 };
 
 std::ostream& operator<<(std::ostream& os, const Client& client);
+void recherche(std::vector<Client> _clients, std::string recherche);
