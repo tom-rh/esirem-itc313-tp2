@@ -43,13 +43,92 @@ int Reservation::getID() const
     return _id;
 }
 
-void Reservation::ModifSejour(date::Date newdate,int newnuit)
+void Reservation::ModifSejour()
 {
 
-    _debut=newdate;
-    _nb_nuit=newnuit;
+bool test = false;
+date::Date date;
+int jour,mois,annee;
+
+do
+
+{
+    std::cout <<"enter un jour" << std::endl;
+    std::cin >> jour ;
+
+    std::cout <<"enter un mois" << std::endl;
+    std::cin >> mois ;
+
+    std::cout <<"enter une annee" << std::endl;
+    std::cin >> annee;
+
+    
+    test = date::isDate(jour,mois);
+    if(test==false)
+    {
+        std::cout <<"date invalide " << std::endl;
+    }
+   
+}while(test == false);
+
+date = date::Date(jour,mois,annee);
+    _debut=date;
+
+
+int nuits;
+bool tnuit = false;
+
+do
+{
+
+    std::cout <<"enter un nouveau nombre de nuit" << std::endl;
+    std::cin >> nuits;  
+    
+    if(nuits <= 0)
+    {
+        tnuit = false;
+        std::cout <<"nombre de nuit invalide" << std::endl;
+    }
+
+    else
+    tnuit = true;
+
+} while (tnuit==false);
+
+    _nb_nuit=nuits;
+
+   
+}
+
+
+void afficheReserv(std::vector<Reservation> reservs)
+{
+    for(auto i= reservs.begin() ; i != reservs.end() ; i++)
+        {
+           std::cout << (*i);
+           
+        }
+}
+
+
+void rechercheReserv(std::vector<Reservation> reservs ,int id)
+
+{
+
+int testID;
+for(auto i= reservs.begin() ; i != reservs.end() ; i++)
+        {
+           testID=(*i).getID();
+
+           if(id == testID)
+           {
+               std::cout << (*i) <<std::endl;
+           }
+           
+        }
 
 }
+
 
 
 std::ostream& operator<<(std::ostream& os, const Reservation& reserv){

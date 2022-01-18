@@ -7,6 +7,7 @@ namespace date {
 
 
     Date::Date(int day, int month, int year) : _month(month), _day(day), _year(year) {
+
         bool status = isDate(day, month);
         assert(status && "Date is not valid");
     }
@@ -139,6 +140,7 @@ void Date::updateYear(int year) {
             new_month++;
             if (new_month > 12) { // end of the year
                 new_month = 1;
+                new_year = new_year+1;
             }
             tmp.updateMonth(new_month);
             days_in_month = getDaysInMonth(tmp.month(),tmp.year());

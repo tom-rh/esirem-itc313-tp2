@@ -29,27 +29,19 @@ h1.addChambre("suite",500);
  _clients.push_back(Client ("rom","canard"));
 
 
-std::string test = "bozo";
-recherche(_clients,test);
-
-afficheClient(_clients);
-
+//std::string test = "bozo";
+//recherche(_clients,test);
+//afficheClient(_clients);
 Client cl1("kinkin","fifi");
-
 //h1.AffichChambre();
-
 Chambre ch1=h1.getChambre(3);
-
 //std::cout<< ch1;
+date::Date d2(31,3,2022);
 
-
-
-date::Date d2(18,1,2022);
-
-Reservation reserv1(cl1,h1,ch1,d1,10);
+Reservation reserv1(cl1,h1,ch1,d2,10);
 std::cout<< reserv1;
 
-reserv1.ModifSejour(d2,15);
+reserv1.ModifSejour();
 std::cout<< reserv1;
 
 

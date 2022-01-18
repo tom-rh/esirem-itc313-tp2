@@ -29,11 +29,14 @@ public :
     float getTotal() const;
     Hotel getHotel() const;
     Chambre getChambre() const;
-    void ModifSejour(date::Date newdate,int newnuit);
+    void ModifSejour();
     int getID() const;
+    void afficheReserv();
 
  
 
 };
 std::ostream& operator<<(std::ostream& os, const Reservation& reserv);
+void afficheReserv(std::vector<Reservation> reservs);
+void rechercheReserv(std::vector<Reservation> reservs, int id);
 
