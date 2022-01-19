@@ -6,7 +6,6 @@
 namespace date {
    class Date {
    public:
-      
       Date(int day=1, int month=1, int year=2022);
       int month() const;
       int day() const;
@@ -16,14 +15,10 @@ namespace date {
       void updateYear(int year);
       void next();
       void back();
-   
-
    private:
       int _month;
       int _day;
       int _year;
-
-
    };
    int getDaysInMonth(int month, int year);
    bool isDate(int day, int month);

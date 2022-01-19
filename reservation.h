@@ -37,8 +37,8 @@ public :
  
 
 };
-std::ostream& operator<<(std::ostream& os, const Reservation& reserv);
-void afficheReserv(std::vector<Reservation> reservs);
-void rechercheReserv(std::vector<Reservation> reservs, int id);
-void reservClient(std::vector<Reservation> reservs,int id);
+std::ostream& operator<<(std::ostream& os, const Reservation& reservation);
+void afficheReserv(std::vector<Reservation> reservations);
+void rechercheReserv(std::vector<Reservation> reservations, int id);
+void reservClient(std::vector<Reservation> reservations,int id);
 

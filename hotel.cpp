@@ -1,77 +1,63 @@
-   #include "hotel.h"
-   #include <string>
-   #include <iostream>
-   
-   int Hotel::_debutId=1;
+#include "hotel.h"
+#include <string>
+#include <iostream>
 
+int Hotel::_debutId=1;
 
-    Hotel::Hotel(std::string nom,std::string ville): _ID(_debutId++), _nom(nom), _ville(ville){
-
-
-    }
-
-    int Hotel::getID() const{
-        return _ID;
-    }
-
-    std::string Hotel::getNom() const{
-        return _nom;
-    }
-
-
-    std::string Hotel::getVille() const{
-        return _ville;
-    }
-
-
-    void Hotel::AffichChambre(){
-
-
-        for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
-        {
-           std::cout << (*i);
-           
-        }
-    }
-
-
-    bool Hotel::addChambre(std::string type, float prix){
-       
-        _chambres.push_back(Chambre (type,prix));
-
-        return true;
-    }
-
-
-    bool Hotel::supChambre(int ID){
-
-              for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
-        {
-           auto a =(*i).getID();
-           if(a==ID)
-           {
-               _chambres.erase(i);
-           }
-        }
-
-    }
-
-    Chambre Hotel::getChambre(int id)
+Hotel::Hotel(std::string nom,std::string ville): _id(_debutId++), _nom(nom), _ville(ville)
 {
-     for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
-        {
-            if((*i).getID()==id)
-            {
-                return (*i);
-            }
-           
-           
-        }
 }
 
+int Hotel::getID() const
+{
+	return _id;
+}
 
-    std::ostream& operator<<(std::ostream& os, const Hotel& hotel){
-    os << hotel.getID() << "-" << hotel.getNom() << "-" << hotel.getVille() << std::endl;
-    return os;
-    
+std::string Hotel::getNom() const
+{
+	return _nom;
+}
+
+std::string Hotel::getVille() const
+{
+	return _ville;
+}
+
+void Hotel::AffichChambre()
+{
+	for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
+	{
+		std::cout << (*i);
+	}
+}
+
+bool Hotel::addChambre(std::string type, float prix)
+{
+	_chambres.push_back(Chambre (type,prix));
+	return true;
+}
+
+bool Hotel::supChambre(int id)
+{
+	for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
+	{
+		auto a =(*i).getID();
+		if(a == id)
+			_chambres.erase(i);
+	}
+}
+
+Chambre Hotel::getChambre(int id)
+{
+	for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
+	{
+		if((*i).getID()==id)
+			return (*i);
+	}
+}
+
+std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
+{
+	os << hotel.getID() << "-" << hotel.getNom() << "-" << hotel.getVille() << std::endl;
+	return os;
 }

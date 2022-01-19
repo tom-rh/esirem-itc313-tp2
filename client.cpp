@@ -3,32 +3,31 @@
 
 int Client::_debutId=1;
 
-Client::Client(std::string prenom, std::string nom): _id(_debutId++), _prenom(prenom), _nom(nom) {
+Client::Client(std::string prenom, std::string nom): _id(_debutId++), _prenom(prenom), _nom(nom)
+{
 
 }
 
-int Client::getID() const{
-
+int Client::getID() const
+{
     return _id;
 }
 
-std::string Client::getPrenom() const {
-
+std::string Client::getPrenom() const
+{
     return _prenom;
 }
 
-std::string Client::getNom() const {
-
+std::string Client::getNom() const
+{
     return _nom;
 }
-
-
 
 void recherche(std::vector<Client> &clients, std::string recherche)
 {
     bool creation = true;
 
- for(auto i= clients.begin() ; i != clients.end() ; i++)
+	for(auto i= clients.begin() ; i != clients.end() ; i++)
         {
             std::string comp=(*i).getNom();
             if(comp==recherche)
@@ -36,18 +35,16 @@ void recherche(std::vector<Client> &clients, std::string recherche)
                 std::cout<< (*i);
                 creation=false;
             }
-           
-           
         }
- if(creation==true)
- {
-     std::string prenom;
-     std::cout<< "entre un prenom"<< std::endl;
-     std::cin >> prenom;
+	if(creation==true)
+	{
+		std::string prenom;
+		std::cout<< "entre un prenom"<< std::endl;
+		std::cin >> prenom;
 
-     clients.push_back(Client (prenom,recherche));
-     std::cout<< "votre nouveau client est bien ajoute"<< std::endl;
- }
+		clients.push_back(Client (prenom,recherche));
+		std::cout<< "votre nouveau client est bien ajoute"<< std::endl;
+	}
 
 }
 
@@ -56,10 +53,9 @@ void recherche(std::vector<Client> &clients, std::string recherche)
 void afficheClient(std::vector<Client> clients)
 {
     for(auto i= clients.begin() ; i != clients.end() ; i++)
-        {
-           std::cout << (*i);
-           
-        }
+    {
+    	std::cout << (*i);
+    }
 }
 
 
@@ -67,5 +63,4 @@ void afficheClient(std::vector<Client> clients)
 std::ostream& operator<<(std::ostream& os, const Client& client){
     os << client.getID() << "-" << client.getPrenom() << "-" << client.getNom() << std::endl;
     return os;
-    
 }
