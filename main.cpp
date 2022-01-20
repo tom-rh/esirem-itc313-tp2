@@ -1,7 +1,4 @@
 #pragma once
-#include "date.h"
-//#include "hotel.h"
-//#include "client.h"
 #include "reservation.h"
 #include <string>
 
@@ -23,20 +20,19 @@ h1.addChambre("double",150);
 h1.addChambre("suite",500);
 h1.addChambre("suite",500);
 
- std::vector<Client> _clients; 
- _clients.push_back(Client ("kinkin","fifi"));
- _clients.push_back(Client ("akil","isna"));
- _clients.push_back(Client ("arthur","grobaij"));
- _clients.push_back(Client ("rom","canard"));
+std::cout << h1.getChambre(1) << std::endl;;
+std::cout << h1 << std::endl;
 
+std::vector<Client> _clients; 
+_clients.push_back(Client ("kinkin","fifi"));
+_clients.push_back(Client ("akil","isna"));
+_clients.push_back(Client ("arthur","grobaij"));
+_clients.push_back(Client ("rom","canard"));
 
-//std::string test = "bozo";
-//recherche(_clients,test);
-//afficheClient(_clients);
+std::cout << _clients.at(0) << std::endl;
+
 Client cl1("kinkin","fifi");
-//h1.AffichChambre();
 Chambre ch1=h1.getChambre(3);
-//std::cout<< ch1;
 date::Date d2(31,3,2022);
 
 Reservation reserv1(cl1,h1,ch1,d2,10);

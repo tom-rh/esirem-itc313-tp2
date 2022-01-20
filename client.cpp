@@ -61,6 +61,7 @@ void afficheClient(std::vector<Client> clients)
 
 
 std::ostream& operator<<(std::ostream& os, const Client& client){
-    os << client.getID() << "-" << client.getPrenom() << "-" << client.getNom() << std::endl;
+	os << "Client :" << std::endl;
+    os << "ID : " << client.getID() << " - Prenom : " << client.getPrenom() << " - Nom : " << client.getNom() << std::endl;
     return os;
 }
