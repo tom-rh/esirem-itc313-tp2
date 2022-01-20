@@ -29,11 +29,11 @@ public :
     Chambre getChambre() const;
     void ModifSejour();
     int getID() const;
-    void afficheReserv();
-    void modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
+    void afficheReservation();
+    void modifReservation(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
 };
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation);
-void afficheReserv(std::vector<Reservation> reservations);
-void rechercheReserv(std::vector<Reservation> reservations, int id);
-void reservClient(std::vector<Reservation> reservations,int id);
+void afficheReservation(std::vector<Reservation> reservations);
+void rechercheReservation(std::vector<Reservation> reservations, int id);
+void afficheReservationClient(std::vector<Reservation> reservations,int id);
 

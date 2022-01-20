@@ -96,7 +96,7 @@ void Reservation::ModifSejour()
 
 
 
-void Reservation::modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit)
+void Reservation::modifReservation(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit)
 {
 	_client=client;
 	_hotel=hotel;
@@ -107,40 +107,45 @@ void Reservation::modifReserv(Client client, Hotel hotel, Chambre chambre,date::
 
 
 
-void afficheReserv(std::vector<Reservation> reservations)
+void afficheReservation(std::vector<Reservation> reservations)
 {
-    for(auto i= reservations.begin() ; i != reservations.end() ; i++)
+    for(Reservation reservation : reservations)
     {
-    	std::cout << (*i);
+    	std::cout << reservation;
     }
 }
 
 
-void rechercheReserv(std::vector<Reservation> reservations ,int id)
+void rechercheReservation(std::vector<Reservation> reservations ,int id)
 {
-	int testID;
-	for(auto i= reservations.begin() ; i != reservations.end() ; i++)
+	for(Reservation reservation : reservations)
 	{
-        testID=(*i).getID();
-        if(id == testID)
-            std::cout << (*i) <<std::endl;
+        if(id == reservation.getID())
+            std::cout << reservation <<std::endl;
     }
 }
 
 
 
-void reservClient(std::vector<Reservation> reservations, int id)
+void afficheReservationClient(std::vector<Reservation> reservations, int id)
 {
-	for(auto i= reservations.begin() ; i != reservations.end() ; i++)
+	for(Reservation reservation : reservations)
     {
-        Client client=(*i).getClient();
-
-        if(client.getID()==id)
-            std::cout << (*i);
+        Client client = reservation.getClient();
+        if(client.getID() == id)
+            std::cout << reservation;
     }
-
 }
 
+void afficheReservationClient(std::vector<Reservation> reservations, std::string nom)
+{
+	for(Reservation reservation : reservations)
+    {
+        Client client = reservation.getClient();
+        if(client.getNom() == nom)
+            std::cout << reservation;
+    }
+}
 
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation)
 {
