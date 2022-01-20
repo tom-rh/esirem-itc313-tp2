@@ -2,14 +2,14 @@
 
 int Reservation::_debutId=1;
 
-Reservation::Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit):_id(_debutId++), _client(client), _hotel(hotel), _chambre(chambre), _debut(debut), _nb_nuit(nuit)
+Reservation::Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit):_id(_debutId++), _client(client), _hotel(hotel), _chambre(chambre), _debut(debut), _nbNuit(nuit)
 {
 
 }
 
 int Reservation::getNuit() const
 {
-    return _nb_nuit;
+    return _nbNuit;
 }
 
 Client Reservation::getClient() const
@@ -24,7 +24,7 @@ date::Date Reservation::getDate() const
 
 float Reservation::getTotal() const
 {
-    return _chambre.getPrix()*_nb_nuit;
+    return _chambre.getPrix()*_nbNuit;
 }
 
 Hotel Reservation::getHotel() const
@@ -91,7 +91,7 @@ void Reservation::ModifSejour()
 
 	} while (tnuit==false);
 
-	_nb_nuit=nuits;
+	_nbNuit=nuits;
 }
 
 
@@ -102,7 +102,7 @@ void Reservation::modifReserv(Client client, Hotel hotel, Chambre chambre,date::
 	_hotel=hotel;
 	_chambre=chambre;
 	_debut=debut;
-	_nb_nuit=nuit;
+	_nbNuit=nuit;
 }
 
 
