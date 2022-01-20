@@ -5,6 +5,8 @@ int Reservation::_debutId=1;
 Reservation::Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit):_id(_debutId++), _client(client), _hotel(hotel), _chambre(chambre), _debut(debut), _nb_nuit(nuit)
 {
 
+
+
 }
 
 int Reservation::getNuit() const
@@ -116,6 +118,7 @@ void afficheReserv(std::vector<Reservation> reservations)
 }
 
 
+<<<<<<< Updated upstream
 void rechercheReserv(std::vector<Reservation> reservations ,int id)
 {
 	int testID;
@@ -125,6 +128,39 @@ void rechercheReserv(std::vector<Reservation> reservations ,int id)
         if(id == testID)
             std::cout << (*i) <<std::endl;
     }
+=======
+
+
+
+
+void Reservation::anulReserv(std::vector<Reservation> reservs)
+{
+_status=false;
+}
+
+
+
+
+void rechercheReserv(std::vector<Reservation> reservs ,int id)
+
+{
+
+
+
+
+int testID;
+for(auto i= reservs.begin() ; i != reservs.end() ; i++)
+        {
+           testID=(*i).getID();
+
+           if(id == testID)
+           {
+               std::cout << (*i) <<std::endl;
+           }
+           
+        }
+
+>>>>>>> Stashed changes
 }
 
 

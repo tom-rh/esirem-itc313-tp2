@@ -19,6 +19,7 @@ private :
     Hotel _hotel;
     Chambre _chambre;
     int _id;
+    bool _status;
 
 public :
 
@@ -33,6 +34,7 @@ public :
     int getID() const;
     void afficheReserv();
     void modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
+    void anulReserv(std::vector<Reservation> reservs);
 
  
 
