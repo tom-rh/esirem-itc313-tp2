@@ -57,6 +57,11 @@ Chambre Hotel::getChambre(int id)
 	}
 }
 
+std::vector<Chambre> Hotel::getChambres() const
+{
+	return _chambres;
+}
+
 std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
 {
 	os << "Hotel :" << std::endl;

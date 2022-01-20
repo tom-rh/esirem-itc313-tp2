@@ -20,6 +20,7 @@ public :
     void afficheChambres();
     bool addChambre(std::string type, float prix);
     bool supChambre(int id);
+	std::vector<Chambre> getChambres() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Hotel& hotel);
