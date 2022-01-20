@@ -9,7 +9,6 @@
 
 class Reservation
 {
-
 private :
     static int _debutId;
     date::Date _debut;
@@ -20,9 +19,7 @@ private :
     Chambre _chambre;
     int _id;
     bool _status;
-
 public :
-
     Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
     int getNuit() const;
     Client getClient() const;
@@ -34,13 +31,11 @@ public :
     int getID() const;
     void afficheReserv();
     void modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
-    void anulReserv(std::vector<Reservation> reservs);
-
- 
+	void anulReserv();
 
 };
-std::ostream& operator<<(std::ostream& os, const Reservation& reservation);
 void afficheReserv(std::vector<Reservation> reservations);
 void rechercheReserv(std::vector<Reservation> reservations, int id);
-void reservClient(std::vector<Reservation> reservations,int id);
-
+void reservClient(std::vector<Reservation> reservations, int id);
+int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, std::string type, date::Date dateDebut, int nombreNuits);
+std::ostream& operator<<(std::ostream& os, const Reservation& reservation);

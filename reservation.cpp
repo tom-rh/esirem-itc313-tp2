@@ -107,6 +107,10 @@ void Reservation::modifReserv(Client client, Hotel hotel, Chambre chambre,date::
 	_nb_nuit=nuit;
 }
 
+void Reservation::anulReserv()
+{
+	_status = false;
+}
 
 
 void afficheReserv(std::vector<Reservation> reservations)
@@ -118,7 +122,6 @@ void afficheReserv(std::vector<Reservation> reservations)
 }
 
 
-<<<<<<< Updated upstream
 void rechercheReserv(std::vector<Reservation> reservations ,int id)
 {
 	int testID;
@@ -128,39 +131,6 @@ void rechercheReserv(std::vector<Reservation> reservations ,int id)
         if(id == testID)
             std::cout << (*i) <<std::endl;
     }
-=======
-
-
-
-
-void Reservation::anulReserv(std::vector<Reservation> reservs)
-{
-_status=false;
-}
-
-
-
-
-void rechercheReserv(std::vector<Reservation> reservs ,int id)
-
-{
-
-
-
-
-int testID;
-for(auto i= reservs.begin() ; i != reservs.end() ; i++)
-        {
-           testID=(*i).getID();
-
-           if(id == testID)
-           {
-               std::cout << (*i) <<std::endl;
-           }
-           
-        }
-
->>>>>>> Stashed changes
 }
 
 
@@ -174,9 +144,49 @@ void reservClient(std::vector<Reservation> reservations, int id)
         if(client.getID()==id)
             std::cout << (*i);
     }
-
 }
 
+int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, std::string type, date::Date dateDebut, int nombreNuits)
+{
+	date::Date dateFin = dateDebut + nombreNuits;
+	date::Date dateFinReservation;
+	bool chambreTrouvee = false;
+	int occupe;
+
+	for(Chambre chambre : chambres)
+	{
+		if (chambre.getType() == type)
+		{
+			for (Reservation reservation : reservations)
+			{
+				for (Chambre chambre2  : chambres)
+				{
+					if (reservation.getChambre().getID() == chambre2.getID())
+					{
+						std::cout << "id identique" << std::endl;
+						dateFinReservation = reservation.getDate() + nombreNuits;
+						if (dateFin < reservation.getDate() && dateDebut > dateFinReservation)
+						{
+							return chambre2.getID();
+						}
+					}
+					else
+					{
+						occupe++;
+					}
+				}
+				if (occupe == 0)
+				{
+					std::cout << reservation.getChambre().getID() << chambre.getID() << std::endl;
+					std::cout << "cette chambre n'est pas dans le fichier de réservation" << std::endl;
+					return chambre.getID();
+				}
+			}
+		}
+	}
+
+	return 0; // Aucune chambre trouvée
+}
 
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation)
 {
