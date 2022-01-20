@@ -31,6 +31,7 @@ _clients.push_back(Client ("rom","canard"));
 
 std::cout << _clients.at(0) << std::endl;
 
+Client cl1("kinkin","fifi");
 Chambre ch1=h1.getChambre(3);
 date::Date d2(31,3,2022);
 

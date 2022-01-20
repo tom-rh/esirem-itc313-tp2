@@ -94,8 +94,6 @@ void Reservation::ModifSejour()
 	_nbNuit=nuits;
 }
 
-
-
 void Reservation::modifReservation(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit)
 {
 	_client=client;
@@ -105,8 +103,6 @@ void Reservation::modifReservation(Client client, Hotel hotel, Chambre chambre,d
 	_nbNuit=nuit;
 }
 
-
-
 void afficheReservation(std::vector<Reservation> reservations)
 {
     for(Reservation reservation : reservations)
@@ -114,7 +110,6 @@ void afficheReservation(std::vector<Reservation> reservations)
     	std::cout << reservation;
     }
 }
-
 
 void rechercheReservation(std::vector<Reservation> reservations ,int id)
 {
@@ -124,8 +119,6 @@ void rechercheReservation(std::vector<Reservation> reservations ,int id)
             std::cout << reservation <<std::endl;
     }
 }
-
-
 
 void afficheReservationClient(std::vector<Reservation> reservations, int id)
 {

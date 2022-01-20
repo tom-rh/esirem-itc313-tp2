@@ -9,7 +9,6 @@
 
 class Reservation
 {
-
 private :
     static int _debutId;
     date::Date _debut;
@@ -19,8 +18,9 @@ private :
     Hotel _hotel;
     Chambre _chambre;
     int _id;
+	bool statut;
 public :
-    Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
+    Reservation (Client client, Hotel hotel, Chambre chambre, date::Date debut, int nuit);
     int getNuit() const;
     Client getClient() const;
     date::Date getDate() const;
