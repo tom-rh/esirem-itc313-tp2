@@ -88,11 +88,10 @@ namespace date {
     */
 
      bool isDate(int day, int month) {
-        if ((day < 1) || (day>31)) return false;
-        if ((month <1) || (month>12)) return false;
+        if ((day < 1) || (day > 31)) return false;
+        if ((month < 1) || (month > 12)) return false;
         if ((month == 2) && (day > 28)) return false;
-        if (((month == 4) || (month == 6) ||
-            (month == 9) || (month == 11)) && (day > 30)) return false;
+        if (((month == 4) || (month == 6) || (month == 9) || (month == 11)) && (day > 30)) return false;
         return true;
     }
 
@@ -142,8 +141,8 @@ namespace date {
                 new_month = 1;
                 new_year = new_year+1;
             }
-            tmp.updateMonth(new_month);
-            days_in_month = getDaysInMonth(tmp.month(),tmp.year());
+            //tmp.updateMonth(new_month);
+            days_in_month = getDaysInMonth(new_month,new_year);
         }
         return Date(new_day, new_month, new_year);
     }
