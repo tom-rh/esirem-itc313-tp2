@@ -23,7 +23,7 @@ std::string Hotel::getVille() const
 	return _ville;
 }
 
-void Hotel::AffichChambre()
+void Hotel::afficheChambres()
 {
 	for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
 	{
@@ -44,6 +44,7 @@ bool Hotel::supChambre(int id)
 		auto a =(*i).getID();
 		if(a == id)
 			_chambres.erase(i);
+			return true;
 	}
 }
 
@@ -58,6 +59,7 @@ Chambre Hotel::getChambre(int id)
 
 std::ostream& operator<<(std::ostream& os, const Hotel& hotel)
 {
-	os << hotel.getID() << "-" << hotel.getNom() << "-" << hotel.getVille() << std::endl;
+	os << "Hotel :" << std::endl;
+	os << "ID : " << hotel.getID() << " - Nom : " << hotel.getNom() << " - Ville : " << hotel.getVille() << std::endl;
 	return os;
 }
