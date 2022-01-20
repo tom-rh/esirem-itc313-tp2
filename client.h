@@ -17,5 +17,5 @@ public :
 };
 
 std::ostream& operator<<(std::ostream& os, const Client& client);
-void recherche(std::vector<Client> &clients, std::string recherche);
+void recherche(std::vector<Client> &clients, std::string recherche); // Rechercher client et si client inconnu, création de client
 void afficheClient(std::vector<Client> clients);

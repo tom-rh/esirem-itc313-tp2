@@ -27,12 +27,12 @@ void recherche(std::vector<Client> &clients, std::string recherche)
 {
     bool creation = true;
 
-	for(auto i= clients.begin() ; i != clients.end() ; i++)
+	for(Client client : clients)
         {
-            std::string comp=(*i).getNom();
-            if(comp==recherche)
+            std::string comp = client.getNom();
+            if(comp == recherche)
             {
-                std::cout<< (*i);
+                std::cout << client;
                 creation=false;
             }
         }
