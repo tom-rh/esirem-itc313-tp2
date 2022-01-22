@@ -18,7 +18,7 @@ private :
     Hotel _hotel;
     Chambre _chambre;
     int _id;
-    bool _status;
+    bool _active;
 
 public :
 
@@ -29,7 +29,7 @@ public :
     float getTotal() const;                                                                 // prix du sejour
     Hotel getHotel() const;                                                                 // return l'hotel de la reservation
     Chambre getChambre() const;                                                             // return la chambre de la reservation
-    void ModifSejour();                                                                     // Modifie la dates + nb de nuits du sejour
+    void modifSejour();                                                                     // Modifie la dates + nb de nuits du sejour
     int getID() const; 
     bool getStatut() const;                                                                 
     void modifReserv(Client client, Hotel hotel, Chambre chambre);                          // Modifi client + hotel + chambres du sejours
@@ -39,6 +39,6 @@ public :
 
 void afficheReserv(std::vector<Reservation> reservations);                                  //affiche toutes les reservations
 void rechercheReserv(std::vector<Reservation> reservations, int id);                        // recherche de reservation par ID
-void reservClient(std::vector<Reservation> reservations, int id);                           // recherche de client par ID
-int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, date::Date dateDebut, int nombreNuits); //regarde si une chambre d'un certain type est disponible pour le sejour indiqué
+void reservClient(std::vector<Reservation> reservations, int id);                           // recherche les réservation d'un client
+int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, date::Date dateDebut, int nombreNuits); // recherche si une chambre d'un certain type est disponible pour le sejour indiqué
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation);
