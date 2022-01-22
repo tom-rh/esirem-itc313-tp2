@@ -9,7 +9,6 @@ Chambre::Chambre(std::string type, float prix): _id(_debutId++), _type(type), _p
 
 }
 
-
 int Chambre::getID() const
 {
     return _id;

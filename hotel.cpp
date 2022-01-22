@@ -25,9 +25,9 @@ std::string Hotel::getVille() const
 
 void Hotel::afficheChambres()
 {
-	for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
+	for (Chambre chambre : _chambres)
 	{
-		std::cout << (*i);
+		std::cout << chambre;
 	}
 }
 
@@ -39,21 +39,24 @@ bool Hotel::addChambre(std::string type, float prix)
 
 bool Hotel::supChambre(int id)
 {
-	for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
+	for (auto i = _chambres.begin() ; i != _chambres.end() ; i++)
 	{
-		auto a =(*i).getID();
-		if(a == id)
+		auto a = (*i).getID();
+		if (a == id)
+		{
 			_chambres.erase(i);
 			return true;
+		}
 	}
+	return false;
 }
 
 Chambre Hotel::getChambre(int id)
 {
-	for(auto i= _chambres.begin() ; i != _chambres.end() ; i++)
+	for (Chambre chambre : _chambres)
 	{
-		if((*i).getID()==id)
-			return (*i);
+		if (chambre.getID() == id)
+			return chambre;
 	}
 }
 

@@ -9,7 +9,7 @@ private :
     float _prix;
     std::string _type;
 public :
-    Chambre(std::string type,float prix);
+    Chambre(std::string type, float prix);
     int getID() const;
     float getPrix() const;
     void setPrix(float new_prix);

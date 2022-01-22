@@ -25,45 +25,40 @@ std::string Client::getNom() const
 
 void rechercheClient(std::vector<Client> &clients)
 {
-    std::cout << "Bienvenu dans le recherche de client" << std::endl;
+    std::cout << "Bienvenu dans le recherche de client !" << std::endl;
     bool creation = true;
     std::string recherche;
 
-    std::cout << "entrer un nom" << std::endl;
+    std::cout << "Entrer un nom :" << std::endl;
     std::cin >> recherche;
 
-	for(Client client : clients)
-        {
-            std::string comp = client.getNom();
-            if(comp == recherche)
-            {
-                std::cout << client;
-                creation=false;
-            }
-        }
-	if(creation==true)
+	for (Client client : clients)
 	{
-        std::cout << "Ce client n'existe pas, nous allons le creer" << std::endl;
-		std::string prenom;
-		std::cout<< "entre un prenom"<< std::endl;
-		std::cin >> prenom;
-
-		clients.push_back(Client (prenom,recherche));
+		std::string comp = client.getNom();
+		if(comp == recherche)
+		{
+			std::cout << client;
+			creation=false;
+		}
 	}
 
+	if (creation==true)
+	{
+        std::cout << "Ce client n'existe pas, nous allons le creer !" << std::endl;
+		std::string prenom;
+		std::cout<< "Entre un prenom :"<< std::endl;
+		std::cin >> prenom;
+		clients.push_back(Client (prenom,recherche));
+	}
 }
-
-
 
 void afficheClient(std::vector<Client> clients)
 {
-    for(auto i= clients.begin() ; i != clients.end() ; i++)
+    for (Client client : clients)
     {
-    	std::cout << (*i);
+    	std::cout << client;
     }
 }
-
-
 
 std::ostream& operator<<(std::ostream& os, const Client& client){
 	os << "Client :" << std::endl;
