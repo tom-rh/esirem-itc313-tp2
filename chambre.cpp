@@ -4,7 +4,7 @@
 int Chambre::_debutId=1;
 
 
-Chambre::Chambre(std::string type, float prix): _id(_debutId++), _type(type), _prix(prix)
+Chambre::Chambre(std::string type, float prix): _id(_debutId++), _prix(prix), _type(type)
 {
 
 }

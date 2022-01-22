@@ -16,7 +16,7 @@ public :
     int getID() const;
     std::string getNom() const;
     std::string getVille() const;
-    Chambre getChambre(int id);
+    Chambre* getChambre(int id);
     void afficheChambres();                                          //affiche toutes les chambres de l'hotel
     bool addChambre(std::string type, float prix);                   //ajouter une chambre dans l'hotel
     bool supChambre(int id);                                         //supprimer une chambre dans l'hotel

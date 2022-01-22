@@ -2,7 +2,7 @@
 
 int Reservation::_debutId=1;
 
-Reservation::Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit):_id(_debutId++), _client(client), _hotel(hotel), _chambre(chambre), _debut(debut), _nb_nuit(nuit) , _active(true)
+Reservation::Reservation (Client client, Hotel hotel, Chambre chambre, date::Date debut, int nuit) : _debut(debut), _nb_nuit(nuit), _client(client), _hotel(hotel), _chambre(chambre), _id(_debutId++), _active(true)
 {
 
 }
@@ -24,7 +24,7 @@ date::Date Reservation::getDate() const
 
 float Reservation::getTotal() const
 {
-    return _chambre.getPrix()*_nb_nuit;
+    return _chambre.getPrix() * _nb_nuit;
 }
 
 Hotel Reservation::getHotel() const
@@ -55,19 +55,19 @@ void Reservation::modifSejour()
 
 	do
 	{
-		std::cout <<"Enter un jour :" << std::endl;
+		std::cout << "Enter un jour :" << std::endl;
 		std::cin >> jour ;
 
-		std::cout <<"Enter un mois :" << std::endl;
+		std::cout << "Enter un mois :" << std::endl;
 		std::cin >> mois ;
 
-		std::cout <<"Enter une annee :" << std::endl;
+		std::cout << "Enter une annee :" << std::endl;
 		std::cin >> annee;
 
 		test = date::isDate(jour,mois);
 		if (test == false)
 		{
-			std::cout <<"Date invalide !" << std::endl;
+			std::cout << "Date invalide !" << std::endl;
 		}
 	
 	} while (test == false);
@@ -80,12 +80,12 @@ void Reservation::modifSejour()
 
 	do
 	{
-		std::cout <<"enter un nouveau nombre de nuit" << std::endl;
+		std::cout << "Enter un nouveau nombre de nuit :" << std::endl;
 		std::cin >> nuits;  
 		if(nuits <= 0)
 		{
 			tnuit = false;
-			std::cout <<"nombre de nuit invalide" << std::endl;
+			std::cout << "Nombre de nuit(s) invalide" << std::endl;
 		}
 		else
 			tnuit = true;
@@ -142,7 +142,7 @@ void reservClient(std::vector<Reservation> reservations, int id)
 int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, date::Date dateDebut, int nombreNuits)
 {
 	std::string type;
-	std::cout << "Entrer un type :"<< std::endl;
+	std::cout << "Entrer un type :" << std::endl;
 	std::cin >> type;
 
 	date::Date dateFin = dateDebut + nombreNuits;

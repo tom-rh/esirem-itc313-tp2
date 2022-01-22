@@ -51,13 +51,14 @@ bool Hotel::supChambre(int id)
 	return false;
 }
 
-Chambre Hotel::getChambre(int id)
+Chambre* Hotel::getChambre(int id)
 {
-	for (Chambre chambre : _chambres)
+	for (Chambre &chambre : _chambres)
 	{
 		if (chambre.getID() == id)
-			return chambre;
+			return &chambre;
 	}
+	return nullptr;
 }
 
 std::vector<Chambre> Hotel::getChambres() const

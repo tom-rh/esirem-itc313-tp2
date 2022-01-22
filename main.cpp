@@ -1,12 +1,10 @@
-#pragma once
 #include "reservation.h"
 #include <string>
 
 int main()
 {
 	date::Date d1(12,12,2022);
-	std::vector<Reservation> tabReserv;
-
+	
 	Hotel h1("hotel1","Dijon");
 
 	h1.addChambre("single",100);
@@ -20,7 +18,7 @@ int main()
 	h1.addChambre("suite",500);
 	h1.addChambre("suite",500);
 
-	std::cout << h1.getChambre(1) << std::endl;;
+	std::cout << *h1.getChambre(1) << std::endl;;
 	std::cout << h1 << std::endl;
 
 	std::vector<Client> _clients; 
@@ -35,13 +33,14 @@ int main()
 	rechercheClient(_clients);
 	std::cout << std::endl;
 
-	Chambre ch1=h1.getChambre(1);
-	Chambre ch2=h1.getChambre(2);
-	Chambre ch3=h1.getChambre(3);
-	Chambre ch4=h1.getChambre(4);
-	Chambre ch5=h1.getChambre(5);
+	Chambre ch1 = *h1.getChambre(1);
+	Chambre ch2 = *h1.getChambre(2);
+	Chambre ch3 = *h1.getChambre(3);
+	Chambre ch4 = *h1.getChambre(4);
+	Chambre ch5 = *h1.getChambre(5);
 
 	date::Date d2(31,3,2022);
+	std::vector<Reservation> tabReserv;
 
 	Reservation reserv1(cl1,h1,ch1,d2,10);
 	tabReserv.push_back(reserv1);
