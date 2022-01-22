@@ -60,8 +60,8 @@ int main()
 	tabReserv.push_back(reserv5);
 
 	date::Date d3(1,10,2022);
-	std::cout << "Nous allons rechercher les disponibilités correspondant à votre demande :" << std::endl;
-	disponibilite(h1.getChambres(), tabReserv, d3, 4);
+	std::cout << "Nous allons rechercher les disponibilites correspondant a votre demande :" << std::endl;
+	std::cout << disponibilite(h1.getChambres(), tabReserv, d3, 4) << std::endl;
 
 	return 0;
 }
