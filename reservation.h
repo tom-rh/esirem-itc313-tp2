@@ -19,23 +19,25 @@ private :
     Chambre _chambre;
     int _id;
     bool _status;
+
 public :
+
     Reservation (Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
     int getNuit() const;
     Client getClient() const;
     date::Date getDate() const;
-    float getTotal() const;
-    Hotel getHotel() const;
-    Chambre getChambre() const;
-    void ModifSejour();
-    int getID() const;
-    void afficheReserv();
-    void modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit);
-	void anulReserv();
+    float getTotal() const;                                                                 // prix du sejour
+    Hotel getHotel() const;                                                                 // return l'hotel de la reservation
+    Chambre getChambre() const;                                                             // return la chambre de la reservation
+    void ModifSejour();                                                                     // Modifie la dates + nb de nuits du sejour
+    int getID() const;                                                                  
+    void modifReserv(Client client, Hotel hotel, Chambre chambre);                          // Modifi client + hotel + chambres du sejours
+	void anulReserv();                                                                      // annule une reservation
 
 };
-void afficheReserv(std::vector<Reservation> reservations);
-void rechercheReserv(std::vector<Reservation> reservations, int id);
-void reservClient(std::vector<Reservation> reservations, int id);
-int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, std::string type, date::Date dateDebut, int nombreNuits);
+
+void afficheReserv(std::vector<Reservation> reservations);                                  //affiche toutes les reservations
+void rechercheReserv(std::vector<Reservation> reservations, int id);                        // recherche de reservation par ID
+void reservClient(std::vector<Reservation> reservations, int id);                           // recherche de client par ID
+int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, date::Date dateDebut, int nombreNuits); //regarde si une chambre d'un certain type est disponible pour le sejour indiqué
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation);

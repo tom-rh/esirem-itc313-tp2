@@ -17,10 +17,10 @@ public :
     std::string getNom() const;
     std::string getVille() const;
     Chambre getChambre(int id);
-    void afficheChambres();
-    bool addChambre(std::string type, float prix);
-    bool supChambre(int id);
-	std::vector<Chambre> getChambres() const;
+    void afficheChambres();                                          //affiche toutes les chambres de l'hotel
+    bool addChambre(std::string type, float prix);                   //ajouter une chambre dans l'hotel
+    bool supChambre(int id);                                         //supprimer une chambre dans l'hotel
+	std::vector<Chambre> getChambres() const;                        //avoir le vecteur de chambres de cet hotel
 };
 
 std::ostream& operator<<(std::ostream& os, const Hotel& hotel);

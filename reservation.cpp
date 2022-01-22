@@ -98,19 +98,14 @@ void Reservation::ModifSejour()
 
 
 
-void Reservation::modifReserv(Client client, Hotel hotel, Chambre chambre,date::Date debut,int nuit)
+void Reservation::modifReserv(Client client, Hotel hotel, Chambre chambre)
 {
 	_client=client;
 	_hotel=hotel;
 	_chambre=chambre;
-	_debut=debut;
-	_nb_nuit=nuit;
+
 }
 
-void Reservation::anulReserv()
-{
-	_status = false;
-}
 
 
 void afficheReserv(std::vector<Reservation> reservations)
@@ -144,10 +139,17 @@ void reservClient(std::vector<Reservation> reservations, int id)
         if(client.getID()==id)
             std::cout << (*i);
     }
+
 }
 
-int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, std::string type, date::Date dateDebut, int nombreNuits)
+
+int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reservations, date::Date dateDebut, int nombreNuits)
 {
+
+	std::string type;
+	std::cout << "entrer un type"<< std::endl;
+	std::cin >> type;
+
 	date::Date dateFin = dateDebut + nombreNuits;
 	date::Date dateFinReservation;
 	bool chambreTrouvee = false;
@@ -163,7 +165,7 @@ int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reserva
 				{
 					if (reservation.getChambre().getID() == chambre2.getID())
 					{
-						std::cout << "id identique" << std::endl;
+						
 						dateFinReservation = reservation.getDate() + nombreNuits;
 						if (dateFin < reservation.getDate() && dateDebut > dateFinReservation)
 						{
@@ -188,6 +190,7 @@ int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reserva
 	return 0; // Aucune chambre trouvée
 }
 
+
 std::ostream& operator<<(std::ostream& os, const Reservation& reservation)
 {
     os << "Voici le resume de votre reservation : "<< std::endl;
@@ -197,7 +200,7 @@ std::ostream& operator<<(std::ostream& os, const Reservation& reservation)
     os << "la chambre  : " << reservation.getChambre() << std::endl;
     os << "le debut de votre sejours est le : " << date::toString(reservation.getDate()) << std::endl;
     os << "pour " << reservation.getNuit() << " nuit(s) " << std::endl;
-    os << "le tout pour un rpix total de " << reservation.getTotal() << " euros" << std::endl;
+    os << "le tout pour un rpix total de " << reservation.getTotal() << " euros" << std::endl << std::endl << std::endl;
     return os;
     
 }
