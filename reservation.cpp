@@ -167,7 +167,7 @@ int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reserva
 					{
 						
 						dateFinReservation = reservation.getDate() + nombreNuits;
-						if (dateFin < reservation.getDate() && dateDebut > dateFinReservation)
+						if (dateFin < reservation.getDate() || dateDebut > dateFinReservation)
 						{
 							return chambre2.getID();
 						}
