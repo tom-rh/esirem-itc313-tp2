@@ -44,6 +44,11 @@ int Reservation::getID() const
     return _id;
 }
 
+bool Reservation::getStatut() const
+{
+	return _status;
+}
+
 void Reservation::ModifSejour()
 {
 	bool test = false;
@@ -112,6 +117,7 @@ void afficheReserv(std::vector<Reservation> reservations)
 {
     for(auto i= reservations.begin() ; i != reservations.end() ; i++)
     {
+		if((*i).getStatut() == true)
     	std::cout << (*i);
     }
 }
@@ -169,6 +175,7 @@ int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reserva
 						dateFinReservation = reservation.getDate() + nombreNuits;
 						if (dateFin < reservation.getDate() || dateDebut > dateFinReservation)
 						{
+							std::cout << "Pour votre voyage voici la premiere chambre disponible : "<< std::endl;
 							return chambre2.getID();
 						}
 					}
@@ -181,12 +188,14 @@ int disponibilite(std::vector<Chambre> chambres,std::vector<Reservation> reserva
 				{
 					std::cout << reservation.getChambre().getID() << chambre.getID() << std::endl;
 					std::cout << "cette chambre n'est pas dans le fichier de réservation" << std::endl;
-					return chambre.getID();
+					return chambre.getID(); 					// ID de la chambre disponible
+
 				}
 			}
 		}
 	}
 
+	
 	return 0; // Aucune chambre trouvée
 }
 

@@ -30,7 +30,8 @@ public :
     Hotel getHotel() const;                                                                 // return l'hotel de la reservation
     Chambre getChambre() const;                                                             // return la chambre de la reservation
     void ModifSejour();                                                                     // Modifie la dates + nb de nuits du sejour
-    int getID() const;                                                                  
+    int getID() const; 
+    bool getStatut() const;                                                                 
     void modifReserv(Client client, Hotel hotel, Chambre chambre);                          // Modifi client + hotel + chambres du sejours
 	void anulReserv();                                                                      // annule une reservation
 

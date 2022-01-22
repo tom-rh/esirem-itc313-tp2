@@ -48,7 +48,8 @@ date::Date d2(31,3,2022);
 
 Reservation reserv1(cl1,h1,ch1,d2,10);
 tabReserv.push_back(reserv1);
-//std::cout<< reserv1;
+std::cout<< reserv1;
+
 
 Reservation reserv2(cl1,h1,ch2,d2,10);
 tabReserv.push_back(reserv2);
@@ -69,7 +70,8 @@ tabReserv.push_back(reserv5);
 
 date::Date d3(1,10,2022);
 std::cout << "nous allons rechercher les disponibilités" << std::endl;
-std::cout << disponibilite(h1.getChambres(), tabReserv, d3, 4) << std::endl;
+disponibilite(h1.getChambres(), tabReserv, d3, 4);
+
 
 
 

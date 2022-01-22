@@ -32,7 +32,7 @@ void Chambre::setPrix(float new_prix)
 
 std::ostream& operator<<(std::ostream& os, const Chambre& chambre)
 {
-	os << "Chanmbre :" << std::endl; 
+	os << "Chambre :" << std::endl; 
     os << "ID : " << chambre.getID() << " - Type : " << chambre.getType() << " - Prix : " << chambre.getPrix() << std::endl;
     return os;
 }
